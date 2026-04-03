@@ -8,25 +8,59 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
+      margin: 0;
       padding: 20px;
+      box-sizing: border-box;
     }
-    h2 { margin-top: 40px; }
-
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 20px;
+    }
+    .cell {
+      position: relative;
+    }
+    .cell h2 {
+      margin: 0 0 8px 0;
+      font-size: 1rem;
+    }
     #viewDiv {
-      height: 500px;
+      height: 450px;
       width: 100%;
+      position: relative;
     }
     .map-iframe {
-      height: 500px;
+      height: 450px;
       width: 100%;
       border: none;
+      display: block;
     }
   </style>
 
   <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
   <script src="https://js.arcgis.com/4.29/"></script>
+</head>
+<body>
+
+  <div class="grid">
+
+    <div class="cell">
+      <h2>ArcGIS JavaScript SDK</h2>
+      <div id="viewDiv"></div>
+    </div>
+
+    <div class="cell">
+      <h2>Leaflet</h2>
+      <iframe class="map-iframe" src="leaflet_map_styled.html"></iframe>
+    </div>
+
+    <div class="cell">
+      <h2>ArcGIS Instant App</h2>
+      <iframe class="map-iframe" src="https://headwatersth.maps.arcgis.com/apps/instant/basic/index.html?appid=18bcdeed107146feb9748c22454f67f9" allowfullscreen></iframe>
+    </div>
+
+  </div>
 
   <script>
     require([
@@ -70,20 +104,6 @@
 
     });
   </script>
-</head>
-<body>
-
-  <h2>ArcGIS JavaScript SDK</h2>
-  <div id="viewDiv"></div>
-
-  <h2>Leaflet — Branded</h2>
-  <iframe class="map-iframe" src="leaflet_map_styled.html"></iframe>
-
-  <h2>Leaflet — Basic</h2>
-  <iframe class="map-iframe" src="leaflet_map.html"></iframe>
-
-  <h2>ArcGIS Instant App</h2>
-  <iframe class="map-iframe" src="https://headwatersth.maps.arcgis.com/apps/instant/basic/index.html?appid=18bcdeed107146feb9748c22454f67f9" allowfullscreen></iframe>
 
 </body>
 </html>
