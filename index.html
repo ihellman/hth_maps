@@ -39,30 +39,18 @@
       "esri/widgets/BasemapGallery/support/LocalBasemapsSource"
     ], function(Map, MapView, FeatureLayer, BasemapGallery, Expand, Basemap, LocalBasemapsSource) {
 
-      const map = new Map({
-        basemap: "topo-vector"
-      });
+      const map = new Map({ basemap: "topo-vector" });
 
       const view = new MapView({
         container: "viewDiv",
-        map: map
+        map: map,
+        center: [-105.5, 46.5],
+        zoom: 6
       });
 
-      const boundaryLayer = new FeatureLayer({
-        url: "https://services7.arcgis.com/xfRAa5UDzdtHJEhB/arcgis/rest/services/Tech_Hub_Locations/FeatureServer/0"
-      });
-
-      map.add(boundaryLayer);
-
-      view.when(() => {
-        boundaryLayer.when(() => {
-          boundaryLayer.queryExtent().then((response) => {
-            if (response.extent) {
-              view.goTo(response.extent);
-            }
-          });
-        });
-      });
+      map.add(new FeatureLayer({
+        portalItem: { id: "0bc653997bea4770b409673a83a22371" }
+      }));
 
       const bgExpand = new Expand({
         view: view,
@@ -79,6 +67,7 @@
         autoCollapse: true
       });
       view.ui.add(bgExpand, "top-right");
+
     });
   </script>
 </head>
@@ -87,11 +76,14 @@
   <h2>ArcGIS JavaScript SDK</h2>
   <div id="viewDiv"></div>
 
-  <h2>ArcGIS Instant App (iFrame)</h2>
-  <iframe class="map-iframe" src="https://headwatersth.maps.arcgis.com/apps/instant/basic/index.html?appid=18bcdeed107146feb9748c22454f67f9" allowfullscreen></iframe>
+  <h2>Leaflet — Branded</h2>
+  <iframe class="map-iframe" src="leaflet_map_styled.html"></iframe>
 
-  <h2>Leaflet</h2>
+  <h2>Leaflet — Basic</h2>
   <iframe class="map-iframe" src="leaflet_map.html"></iframe>
+
+  <h2>ArcGIS Instant App</h2>
+  <iframe class="map-iframe" src="https://headwatersth.maps.arcgis.com/apps/instant/basic/index.html?appid=18bcdeed107146feb9748c22454f67f9" allowfullscreen></iframe>
 
 </body>
 </html>
