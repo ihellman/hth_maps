@@ -1,0 +1,96 @@
+{
+    "type": "FeatureCollection",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "EPSG:4326"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "id": 1,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -113.450885,
+                    46.8932530000001
+                ]
+            },
+            "properties": {
+                "OBJECTID": 1,
+                "name": "Lubrecht Experimental Forest",
+                "y": 46.893253,
+                "x": -113.450885
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 2,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -112.566021083,
+                    46.011830219
+                ]
+            },
+            "properties": {
+                "OBJECTID": 2,
+                "name": "Underground Mine Education Center",
+                "y": 46.011830219086242,
+                "x": -112.56602108343857
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 3,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.055559887,
+                    45.813467078
+                ]
+            },
+            "properties": {
+                "OBJECTID": 3,
+                "name": "Lutz Farm",
+                "y": 45.813467077955323,
+                "x": -111.05555988650589
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 4,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.268918822,
+                    46.8737369940001
+                ]
+            },
+            "properties": {
+                "OBJECTID": 4,
+                "name": "Grand Farm",
+                "y": 46.873736994018195,
+                "x": -97.268918822204057
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 5,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.646368159,
+                    45.58443751
+                ]
+            },
+            "properties": {
+                "OBJECTID": 5,
+                "name": "Red Bluff Ranch",
+                "y": 45.58443751010747,
+                "x": -111.64636815940993
+            }
+        }
+    ]
+}
