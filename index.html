@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Hub Locations — Map Comparison</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h2 { margin-top: 40px; }
+
+    #viewDiv {
+      height: 500px;
+      width: 100%;
+    }
+    .map-iframe {
+      height: 500px;
+      width: 100%;
+      border: none;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.29/"></script>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer",
+      "esri/widgets/BasemapGallery",
+      "esri/widgets/Expand",
+      "esri/Basemap",
+      "esri/widgets/BasemapGallery/support/LocalBasemapsSource"
+    ], function(Map, MapView, FeatureLayer, BasemapGallery, Expand, Basemap, LocalBasemapsSource) {
+
+      const map = new Map({
+        basemap: "topo-vector"
+      });
+
+      const view = new MapView({
+        container: "viewDiv",
+        map: map
+      });
+
+      const boundaryLayer = new FeatureLayer({
+        url: "https://services7.arcgis.com/xfRAa5UDzdtHJEhB/arcgis/rest/services/Tech_Hub_Locations/FeatureServer/0"
+      });
+
+      map.add(boundaryLayer);
+
+      view.when(() => {
+        boundaryLayer.when(() => {
+          boundaryLayer.queryExtent().then((response) => {
+            if (response.extent) {
+              view.goTo(response.extent);
+            }
+          });
+        });
+      });
+
+      const bgExpand = new Expand({
+        view: view,
+        content: new BasemapGallery({
+          view: view,
+          source: new LocalBasemapsSource({
+            basemaps: [
+              Basemap.fromId("topo-vector"),
+              Basemap.fromId("hybrid")
+            ]
+          })
+        }),
+        expandIconClass: "esri-icon-basemap",
+        autoCollapse: true
+      });
+      view.ui.add(bgExpand, "top-right");
+    });
+  </script>
+</head>
+<body>
+
+  <h2>ArcGIS JavaScript SDK</h2>
+  <div id="viewDiv"></div>
+
+  <h2>ArcGIS Instant App (iFrame)</h2>
+  <iframe class="map-iframe" src="https://headwatersth.maps.arcgis.com/apps/instant/basic/index.html?appid=18bcdeed107146feb9748c22454f67f9" allowfullscreen></iframe>
+
+  <h2>Leaflet</h2>
+  <iframe class="map-iframe" src="leaflet_map.html"></iframe>
+
+</body>
+</html>
