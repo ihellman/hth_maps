@@ -10,8 +10,8 @@
     #viewDiv { height: 100%; width: 100%; }
   </style>
 
-  <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
-  <script src="https://js.arcgis.com/4.29/"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.32/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.32/"></script>
 </head>
 <body>
 
@@ -47,7 +47,7 @@
         portalItem: { id: "0c399fc5468e4cb6b64e292675ed8c52" }
       }));
 
-      // Basemap toggle — restricted to topo and hybrid to match other map versions
+      // Basemap gallery
       const bgExpand = new Expand({
         view: view,
         content: new BasemapGallery({
@@ -59,9 +59,7 @@
               Basemap.fromId("streets-vector"),
               Basemap.fromId("streets-night-vector"),
               Basemap.fromId("gray-vector"),
-              Basemap.fromId("dark-gray-vector"),
-              Basemap.fromId("navigation"),
-              Basemap.fromId("navigation-dark")
+              Basemap.fromId("dark-gray-vector")
             ]
           })
         }),
