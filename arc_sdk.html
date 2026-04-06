@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArcGIS JS SDK Map</title>
+
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; }
+    #viewDiv { height: 100%; width: 100%; }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.29/"></script>
+</head>
+<body>
+
+  <div id="viewDiv"></div>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer",
+      "esri/widgets/BasemapGallery",
+      "esri/widgets/Expand",
+      "esri/Basemap",
+      "esri/widgets/BasemapGallery/support/LocalBasemapsSource"
+    ], function(Map, MapView, FeatureLayer, BasemapGallery, Expand, Basemap, LocalBasemapsSource) {
+
+      const map = new Map({ basemap: "topo-vector" });
+
+      const view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-105.5, 46.5],
+        zoom: 6
+      });
+
+      // Tech hub locations — hosted feature layer on ArcGIS Online
+      map.add(new FeatureLayer({
+        portalItem: { id: "0bc653997bea4770b409673a83a22371" }
+      }));
+
+      // Basemap toggle — restricted to topo and hybrid to match other map versions
+      const bgExpand = new Expand({
+        view: view,
+        content: new BasemapGallery({
+          view: view,
+          source: new LocalBasemapsSource({
+            basemaps: [
+              Basemap.fromId("topo-vector"),
+              Basemap.fromId("hybrid")
+            ]
+          })
+        }),
+        expandIconClass: "esri-icon-basemap",
+        autoCollapse: true
+      });
+      view.ui.add(bgExpand, "top-right");
+
+    });
+  </script>
+
+</body>
+</html>
