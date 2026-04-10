@@ -3,61 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Hub Locations — Map Comparison</title>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-      gap: 20px;
-    }
-    .cell {
-      position: relative;
-    }
-    .cell h2 {
-      margin: 0 0 8px 0;
-      font-size: 1rem;
-    }
-    .map-iframe {
-      height: 450px;
-      width: 100%;
-      border: none;
-      display: block;
-    }
-  </style>
+  <title>Headwaters Tech Hub Maps</title>
 </head>
 <body>
 
-  <div class="grid">
+  <h1>Headwaters Tech Hub Maps</h1>
 
-    <div class="cell">
-      <h2>ArcGIS JavaScript SDK</h2>
-      <iframe class="map-iframe" src="arc_sdk.html"></iframe>
-    </div>
+  <h2>Tech Hub Overview</h2>
+  <iframe src="sites/overview_page.html" width="100%" height="480" style="border:none;"></iframe>
 
-    <div class="cell">
-      <h2>Leaflet</h2>
-      <iframe class="map-iframe" src="leaflet_map_styled.html"></iframe>
-    </div>
+  <h2>Lubrecht</h2>
+  <iframe src="sites/lubrecht_page.html" width="100%" height="480" style="border:none;"></iframe>
 
-    <div class="cell">
-      <h2>ArcGIS Instant App</h2>
-      <iframe class="map-iframe" src="https://headwatersth.maps.arcgis.com/apps/instant/basic/index.html?appid=18bcdeed107146feb9748c22454f67f9" allowfullscreen></iframe>
-    </div>
+  <h2>UMEC</h2>
+  <iframe src="sites/umec_page.html" width="100%" height="480" style="border:none;"></iframe>
 
-    <div class="cell">
-      <h2>Web Map Script Embed</h2>
-      <iframe class="map-iframe" src="embedded_map.html"></iframe>
-    </div>
+  <h2>Lutz and Red Bluff</h2>
+  <iframe src="sites/lutz_red_bluff_page.html" width="100%" height="480" style="border:none;"></iframe>
 
-  </div>
+  <h2>Grand Farm</h2>
+  <iframe src="sites/grand_farm_page.html" width="100%" height="480" style="border:none;"></iframe>
 
 </body>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Hub Locations — Map Comparison</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 20px;
+    }
+    .cell {
+      position: relative;
+    }
+    .cell h2 {
+      margin: 0 0 8px 0;
+      font-size: 1rem;
+    }
+    .map-iframe {
+      height: 450px;
+      width: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid">
+
+    <div class="cell">
+      <h2>ArcGIS JavaScript SDK</h2>
+      <iframe class="map-iframe" src="arc_sdk.html"></iframe>
+    </div>
+
+    <div class="cell">
+      <h2>Leaflet</h2>
+      <iframe class="map-iframe" src="leaflet_map_styled.html"></iframe>
+    </div>
+
+    <div class="cell">
+      <h2>ArcGIS Instant App</h2>
+      <iframe class="map-iframe" src="https://headwatersth.maps.arcgis.com/apps/instant/basic/index.html?appid=18bcdeed107146feb9748c22454f67f9" allowfullscreen></iframe>
+    </div>
+
+    <div class="cell">
+      <h2>Web Map Script Embed</h2>
+      <iframe class="map-iframe" src="embedded_map.html"></iframe>
+    </div>
+
+  </div>
+
+</body>
+</html>
