@@ -3,20 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ArcGIS JS SDK Map</title>
-
+  <title>Tech Hubs Overview</title>
   <style>
     html, body { margin: 0; padding: 0; height: 100%; }
     #viewDiv { height: 100%; width: 100%; }
   </style>
-
   <link rel="stylesheet" href="https://js.arcgis.com/4.32/esri/themes/light/main.css">
   <script src="https://js.arcgis.com/4.32/"></script>
 </head>
 <body>
-
   <div id="viewDiv"></div>
-
   <script>
     require([
       "esri/Map",
@@ -34,25 +30,12 @@
         zoom: 6
       });
 
-      // Tech hub locations — hosted feature layer on ArcGIS Online
-      map.add(new FeatureLayer({
-        portalItem: { id: "0bc653997bea4770b409673a83a22371" }
-      }));
+      map.add(new FeatureLayer({ portalItem: { id: "0bc653997bea4770b409673a83a22371" } }));
+      map.add(new FeatureLayer({ portalItem: { id: "0c399fc5468e4cb6b64e292675ed8c52" } }));
 
-      // Polygon layer
-      map.add(new FeatureLayer({
-        portalItem: { id: "0c399fc5468e4cb6b64e292675ed8c52" }
-      }));
-
-      // Basemap toggle (topo <-> satellite)
-      const basemapToggle = new BasemapToggle({
-        view: view,
-        nextBasemap: "hybrid"
-      });
+      const basemapToggle = new BasemapToggle({ view: view, nextBasemap: "hybrid" });
       view.ui.add(basemapToggle, "bottom-right");
-
     });
   </script>
-
 </body>
 </html>
